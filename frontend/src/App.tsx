@@ -10,6 +10,7 @@ function App() {
   }, []);
   return (
     <div>
+      <b>new</b>
       <h3>Backend response:</h3>
       {backendResponse}
     </div>
