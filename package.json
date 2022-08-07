@@ -1,0 +1,13 @@
+{
+  "scripts": {
+    "be-install": "cd backend && yarn",
+    "fe-install": "cd frontend && yarn",
+    "be-build": "cd backend && yarn build",
+    "fe-build": "cd frontend && yarn build",
+    "be-test": "cd backend && yarn test",
+    "fe-test": "cd frontend && yarn test",
+    "be-deploy": "cd backend/dist && eb init classroom -p node.js-16 -r us-west-1 && eb setenv POSTGRES_HOST=$POSTGRES_HOST POSTGRES_DB=$POSTGRES_DB POSTGRES_TEST_DB=$POSTGRES_TEST_DB POSTGRES_PASSWORD=$POSTGRES_PASSWORD TOKEN_SECRET=$TOKEN_SECRET PEPPER=$PEPPER SALT_ROUNDS=$SALT_ROUNDS ENV=$ENV && eb deploy",
+    "fe-deploy": "cd frontend/build && aws s3 cp --recursive ./ s3://$FRONT_BUCKET"
+  },
+  "devDependencies": {}
+}
